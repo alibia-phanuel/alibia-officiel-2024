@@ -106,12 +106,12 @@ export default function ShoppingCartButton({
             </div>
             <div className="flex justify-center items-center ">
               <CheckoutButton
-                className=" hidden"
+                className=" "
                 size="lg"
                 disabled={!totalQuantity || cartQuery.isFetching}
               />
               <button
-                className="bg-orange-500 p-2 rounded-lg  text-white"
+                className="bg-orange-500 p-2 hidden rounded-lg  text-white"
                 onClick={ShowModal}
               >
                 Finaliser votre commande

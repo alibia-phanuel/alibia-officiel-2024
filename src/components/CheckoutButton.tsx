@@ -6,8 +6,13 @@ export default function CheckoutButton(props: ButtonProps) {
   const { startCheckoutFlow, pending } = useCartCheckout();
 
   return (
-    <LoadingButton onClick={startCheckoutFlow} loading={pending} {...props}>
-      Checkout
+    <LoadingButton
+      onClick={startCheckoutFlow}
+      loading={pending}
+      {...props}
+      disabled
+    >
+      Sortie de caisse
     </LoadingButton>
   );
 }

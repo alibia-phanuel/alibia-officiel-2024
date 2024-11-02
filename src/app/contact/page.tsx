@@ -7,7 +7,7 @@ export default function contact() {
       <motion.section
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 1 }}
         transition={{ duration: 0.5 }}
         variants={{
           hidden: { opacity: 0, y: 80 },

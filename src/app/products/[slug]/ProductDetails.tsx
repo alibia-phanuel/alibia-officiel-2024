@@ -1,10 +1,20 @@
 "use client";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ArrowDown, ArrowRight, MessageCircle } from "lucide-react";
 import Badge from "@/components/ui/badge";
-import WixImage from "@/components/ui/WixImage";
 import { products } from "@wix/stores";
 import ProductOption from "./ProductOption";
-import { useState } from "react";
 import { checkInStock, findVariant } from "@/lib/utils";
 import ProductPrice from "./ProductPrice";
 import ProductMedia from "./ProductMedia";
@@ -50,6 +60,47 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     selectedVariant?.stock?.quantity ?? product.stock?.quantity;
   const availableQuantityExceeded =
     !!availableQuantity && quantity > availableQuantity;
+
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const [errorState, setErrorSate] = useState(false);
+  const [orderLink, setOrderLink] = useState("");
+  async function handleOrderSubmit() {
+    if (name.length <= 3) {
+      setErrorSate(false); // Indique une erreur
+      setError("Le nom doit contenir plus de 3 caractères.");
+    } else {
+      setErrorSate(true); // Indique un succès
+      setError("");
+      const domainName = "http:/localhost:3000"; // Remplacez par votre nom de domaine
+      const slug = product.slug; // Assurez-vous que `product.slug` est défini pour chaque produit
+      const productLink = `${domainName}/products/${slug}`;
+      const orderDetails = {
+        customerName: name,
+        productName: product.name,
+        productDescription: product.description,
+        productPrice: product.priceData?.formatted?.price,
+        quantity: quantity,
+        selectedOptions: JSON.stringify(selectedOptions), // Convertir en chaîne si c'est un tableau
+      };
+      const message = `
+  Bonjour Alibia, pouvez-vous confirmer la commande suivante ?
+  
+  Nom du client: ${orderDetails.customerName}
+  Nom du produit: ${orderDetails.productName}
+  Prix du produit: ${orderDetails.productPrice}
+  Quantité: ${orderDetails.quantity}
+  Options sélectionnées: ${orderDetails.selectedOptions}
+  Article: ${productLink}
+`;
+      const phoneNumber = "+237696603305"; // Remplacez par votre numéro de téléphone
+      const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+        message
+      )}`;
+      setOrderLink(whatsappURL);
+    }
+  }
+
   return (
     <div className="flex flex-col gap-10 md:flex-row lg:gap-20">
       <div className="basis-2/5">
@@ -104,13 +155,74 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </div>
         </div>
         {inStock ? (
-          <AddToCartButton
-            product={product}
-            selectedOption={selectedOptions}
-            quantity={quantity}
-            disabled={availableQuantityExceeded || quantity < 1}
-            className="w-full"
-          />
+          <div className="flex items-center gap-2.5 w-full  flex-wrap">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  disabled={quantity <= 0}
+                  variant="outline"
+                  className="flex gap-3"
+                >
+                  <ArrowDown />
+                  <span>passer une Commande</span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Commande d&apos;article Chez Alibia</DialogTitle>
+                  <DialogDescription>
+                    Ces informations nous seront utiles pour Entré en contact
+                    avec vous. Alibia vous remercie.
+                  </DialogDescription>
+                  {error && (
+                    <div className="text-red-500 text-sm col-span-4">
+                      {error}
+                    </div>
+                  )}
+                </DialogHeader>
+
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name" className="text-right">
+                      Nom
+                    </Label>
+                    <Input
+                      id="name"
+                      placeholder="exemple:Pedro Duarte"
+                      className="col-span-3"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button
+                    onClick={async () => {
+                      await handleOrderSubmit(); // Vérifie si l'ordre est validé
+                      if (errorState === true) {
+                        window.open(orderLink, "_blank"); // Redirige uniquement en cas de succès
+                      }
+                    }}
+                    variant="secondary"
+                    className="flex gap-3"
+                    type="button" // Changez à "button" pour éviter la soumission de formulaire
+                  >
+                    Commander 
+                    <ArrowRight />
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+
+            <AddToCartButton
+              product={product}
+              selectedOption={selectedOptions}
+              quantity={quantity}
+              disabled={availableQuantityExceeded || quantity < 1}
+              className="w-full"
+            />
+          </div>
         ) : (
           <BackInStockNotificationButton
             product={product}

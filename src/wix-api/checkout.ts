@@ -2,7 +2,8 @@ import { env } from "@/env";
 import { WIX_STORES_APP_ID } from "@/lib/contants";
 import { findVariant } from "@/lib/utils";
 import { WixClient } from "@/lib/wix-client.base";
-import { checkout } from "@wix/ecom";
+import { checkout, orders } from "@wix/ecom";
+
 import { products } from "@wix/stores";
 
 export async function getCheckoutUrlForCurrentCart(wixClient: WixClient) {
@@ -20,7 +21,7 @@ export async function getCheckoutUrlForCurrentCart(wixClient: WixClient) {
   });
 
   if (!redirectSession) {
-    throw Error("Failed to create redirect session");
+    throw Error("Échec de la création d'une session de redirection");
   }
 
   return redirectSession.fullUrl;
@@ -57,7 +58,7 @@ export async function getCheckoutUrlForProduct(
   });
 
   if (!_id) {
-    throw new Error("Failed to create checkout");
+    throw new Error("Échec de la création d'une caisse de paiement");
   }
 
   const { redirectSession } = await wixClient.redirects.createRedirectSession({
@@ -69,8 +70,62 @@ export async function getCheckoutUrlForProduct(
   });
 
   if (!redirectSession) {
-    throw Error("Failed to create redirect session");
+    throw Error("Échec de la création d'une caisse de paiement");
   }
 
   return redirectSession.fullUrl;
+}
+
+interface createOrderProps {
+  product: products.Product;
+  quantity: number;
+  selectedOptions: Record<string, string>;
+  name: string;
+  success: boolean;
+  phoneNumber: string;
+  channelType?: string; // Par exemple : "WEB"
+}
+
+export async function createOrder(
+  wixClient: WixClient,
+  { product, quantity, selectedOptions, name, phoneNumber }: createOrderProps
+) {
+  try {
+    // Trouve la variante du produit en fonction des options sélectionnées
+    const selectedVariant = findVariant(product, selectedOptions);
+
+    // Crée l'objet de la commande avec les détails nécessaires
+    const orderData = {
+      lineItems: [
+        {
+          productId: product._id,
+          options: selectedVariant
+            ? {
+                variantId: selectedVariant._id,
+              }
+            : { options: selectedOptions },
+          quantity: quantity,
+        },
+      ],
+      customer: {
+        name: name,
+        phone: phoneNumber,
+      },
+      channelType: checkout.ChannelType.WEB,
+    };
+
+    console.log("orderData:", orderData);
+    // Envoie la commande à Wix
+    const response: any = await wixClient.orders.createOrder(orderData);
+    // Vérifie la réponse
+    if (response.status === "success") {
+      console.log("Commande créée avec succès :", response);
+      return response;
+    } else {
+      throw new Error("Erreur lors de la création de la commande.");
+    }
+  } catch (error) {
+    console.error("Erreur dans la création de la commande :", error);
+    throw error;
+  }
 }

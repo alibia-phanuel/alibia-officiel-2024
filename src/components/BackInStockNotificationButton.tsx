@@ -56,14 +56,16 @@ export default function BackInStockNotificationButton({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button {...props}>Notify when available</Button>
+        <Button {...props}>
+          Me notifier lorsque cet article sera disponible
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Notify when available</DialogTitle>
+          <DialogTitle>notifier la disponible de cet article</DialogTitle>
           <DialogDescription>
-            Enter your email address and we&apos;ll let you know when this
-            product is back in stock.
+            Saisissez votre adresse électronique et nous vous préviendrons
+            lorsque ce produit sera à nouveau en stock.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -82,13 +84,14 @@ export default function BackInStockNotificationButton({
               )}
             />
             <LoadingButton type="submit" loading={mutation.isPending}>
-              Notify me
+              Me notifier
             </LoadingButton>
           </form>
         </Form>
         {mutation.isSuccess && (
           <div className="py-2.5 text-green-500">
-            Thank you! We&apos;ll notify you when this product is back in stock.
+            Nous vous remercions ! Nous vous informerons lorsque ce produit sera
+            à nouveau en stock.
           </div>
         )}
       </DialogContent>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import banner from "@/app/assets/banner.jpg";
-import { delay } from "@/lib/utils";
+import {} from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";

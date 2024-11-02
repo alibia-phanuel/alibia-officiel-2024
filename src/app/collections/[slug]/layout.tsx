@@ -3,7 +3,8 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getWixServerClient } from "@/lib/wix-client-server";
 import { getCollectionBySlug } from "@/wix-api/collection";
-import { cn, delay } from "@/lib/utils";
+import Loding from "@/components/Loding";
+import { cn } from "@/lib/utils";
 import WixImage from "@/components/ui/WixImage";
 import { notFound } from "next/navigation";
 interface LayoutProps {
@@ -13,14 +14,13 @@ interface LayoutProps {
 
 export default function Layout({ children, params }: LayoutProps) {
   return (
-    <Suspense fallback={"Loding....."}>
+    <Suspense fallback={<Loding />}>
       <CollectionsLayout params={params}>{children}</CollectionsLayout>
     </Suspense>
   );
 }
 
 async function CollectionsLayout({ children, params: { slug } }: LayoutProps) {
-  await delay(2000);
   const collection = await getCollectionBySlug(getWixServerClient(), slug);
   if (!collection) notFound();
   const banner = collection.media?.mainMedia?.image;

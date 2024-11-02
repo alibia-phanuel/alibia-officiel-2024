@@ -74,7 +74,7 @@ export default function Propos() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 1 }}
             transition={{ duration: 0.5 }}
             variants={{
               hidden: { opacity: 0, y: 80 },
@@ -83,11 +83,12 @@ export default function Propos() {
             className="text-center my-10"
           >
             Bienvenue sur{" "}
-            <span className="text-orange-400 font-bold mx-2">ALIBIA</span>,
-            votre destination de confiance pour tout ce qui touche à la
-            technologie ! <br></br> Nous sommes spécialisés dans la vente de
-            produits high-tech de haute qualité,<br></br>couvrant une large
-            gamme de catégories pour répondre à tous vos besoins numériques.
+            <span className="text-orange-400 font-bold mx-2">ALIBIA</span>, qui
+            est une start-up dans le digital qui offre des produits et services
+            dans le domaine informatique plus précisément la conception
+            d`application web et mobile ou aussi des produits informatiques
+            comme des ordinateurs, équipements réseau, etc. Notre priorité est
+            la satisfaction du client dans tout tous les sens du terme
           </motion.div>
 
           <div>
@@ -100,7 +101,7 @@ export default function Propos() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 1 }}
                 transition={{ duration: 0.5 }}
                 variants={{
                   hidden: { opacity: 0, y: 80 },
@@ -123,7 +124,7 @@ export default function Propos() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 1 }}
                 transition={{ duration: 0.7 }}
                 variants={{
                   hidden: { opacity: 0, y: 80 },
@@ -144,7 +145,7 @@ export default function Propos() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
+                viewport={{ once: true, amount: 1 }}
                 transition={{ duration: 0.9 }}
                 variants={{
                   hidden: { opacity: 0, y: 80 },
@@ -172,7 +173,7 @@ export default function Propos() {
             <motion.ul
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 1 }}
               transition={{ duration: 0.9 }}
               variants={{
                 hidden: { opacity: 0, y: 80 },
@@ -210,7 +211,7 @@ export default function Propos() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 1 }}
             transition={{ duration: 0.5 }}
             variants={{
               hidden: { opacity: 0, y: 80 },

@@ -33,6 +33,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "formik": "^2.4.6",
     "framer-motion": "^11.11.10",
     "js-cookie": "^3.0.5",
     "ky": "^1.7.2",
@@ -43,8 +44,10 @@
     "react-dom": "^19.0.0-rc-f994737d14-20240522",
     "react-hook-form": "^7.53.0",
     "react-medium-image-zoom": "^5.2.10",
+    "react-player": "^2.16.0",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
+    "yup": "^1.4.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

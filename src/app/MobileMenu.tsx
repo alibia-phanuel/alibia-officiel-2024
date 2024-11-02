@@ -77,7 +77,10 @@ export default function MobileMenu({
                 </Link>
               </li>
               <li>
-                <Link href="/" className="font-semibold hover:underline">
+                <Link
+                  href="/passer-une-comment"
+                  className="font-semibold hover:underline"
+                >
                   Comment passer une commande ?
                 </Link>
               </li>

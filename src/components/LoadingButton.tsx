@@ -13,7 +13,10 @@ export default function LoadingButton({
   ...props
 }: LoadingButtonProps) {
   return (
-    <div>
+    <div
+      title="Compte PayPal en cours de vérification système indisponible pour le moment"
+      className="cursor-pointer"
+    >
       <Button
         disabled={loading || disabled}
         className={cn(" items-center gap-2 flex", className)}

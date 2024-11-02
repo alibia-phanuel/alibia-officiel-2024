@@ -1,4 +1,3 @@
-import { delay } from "@/lib/utils";
 import { getWixServerClient } from "@/lib/wix-client-server";
 import { getCollectionBySlug } from "@/wix-api/collection";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -53,7 +52,6 @@ interface ProductsProps {
 }
 
 async function Products({ collectionId, page }: ProductsProps) {
-  await delay(2000);
   const pageSize = 8;
   const collectionProducts = await queryProducts(getWixServerClient(), {
     collectionIds: collectionId,

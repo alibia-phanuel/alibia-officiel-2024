@@ -5,7 +5,6 @@ import {
 } from "@/wix-api/reviews";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "./use-toast";
-
 export function useCreateProductReview() {
   const { toast } = useToast();
 

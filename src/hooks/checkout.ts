@@ -23,7 +23,7 @@ export function useCartCheckout() {
       console.error(error);
       toast({
         variant: "destructive",
-        description: "Failed to load checkout. Please try again.",
+        description: "Échec du chargement de la caisse. Veuillez réessayer.",
       });
     }
   }
@@ -50,7 +50,7 @@ export function useQuickBuy() {
       console.error(error);
       toast({
         variant: "destructive",
-        description: "Failed to load checkout. Please try again.",
+        description: "Échec du chargement de la caisse. Veuillez réessayer.",
       });
     }
   }
