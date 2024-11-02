@@ -21,7 +21,7 @@ interface PageProps {
 
 export function generateMetadata({ searchParams: { q } }: PageProps): Metadata {
   return {
-    title: q ? `Results for "${q}"` : "Products",
+    title: q ? `Résultats pour "${q}"` : "Produits",
   };
 }
 
@@ -35,7 +35,7 @@ export default async function Page({
     sort,
   },
 }: PageProps) {
-  const title = q ? `Results for "${q}"` : "Products";
+  const title = q ? `Résultats pour les"${q}"` : "produits";
 
   return (
     <div className="space-y-10">

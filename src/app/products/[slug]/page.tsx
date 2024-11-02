@@ -2,7 +2,6 @@ import { getProductBySlug } from "@/wix-api/product";
 import { notFound } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Suspense } from "react";
-import { getRelatedProducts } from "@/wix-api/product";
 import { RelatedProducts } from "./RelatedProducts";
 import CreateProductReviewButton from "@/components/reviews/CreateProductReviewButton";
 import { getLoggedInMember } from "@/wix-api/members";
@@ -10,7 +9,6 @@ import { getWixServerClient } from "@/lib/wix-client-server";
 import ProductDetails from "./ProductDetails";
 import { Metadata } from "next";
 
-import Product from "@/components/ui/Product";
 import ProductReviews, {
   ProductReviewsLoadingSkeleton,
 } from "./ProductReviews";

@@ -4,10 +4,13 @@ import { WixClient } from "@/lib/wix-client.base";
 import { cache } from "react";
 export type ProductsSort = "last_updated" | "price_asc" | "price_desc";
 interface QueryProductsFilter {
+  q?: string;
   collectionIds?: string[] | string;
   sort?: ProductsSort;
   skip?: number;
   limit?: number;
+  priceMin?: number;
+  priceMax?: number;
 }
 
 export async function queryProducts(
