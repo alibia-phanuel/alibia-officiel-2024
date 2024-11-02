@@ -1,6 +1,5 @@
 import Image from "next/image";
 import banner from "@/app/assets/banner.jpg";
-import {} from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -60,13 +59,15 @@ async function FeaturedProducts() {
   }
 
   return (
-    <div className="space-y-5 mt-10  ">
-      <h2 className="text-2xl font-bold ">Nouvelle arrivage</h2>
-      <div className="flex flex-col sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 ">
-        {featuredProducts.items.map((product) => (
-          // Composant de produits
-          <Product key={product._id} product={product} />
-        ))}
+    <div className="w-full relative right-9 max-md:right-10">
+      <div className="space-y-5 mt-10  ">
+        <h2 className="text-2xl font-bold ">Nouvelle arrivage</h2>
+        <div className="flex flex-col sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {featuredProducts.items.map((product) => (
+            // Composant de produits
+            <Product key={product._id} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );
