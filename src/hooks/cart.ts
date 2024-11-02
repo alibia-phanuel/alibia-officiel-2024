@@ -8,6 +8,7 @@ import {
   removeCartItem,
 } from "@/wix-api/cart";
 import {
+  MutationKey,
   QueryKey,
   useMutation,
   useQuery,
