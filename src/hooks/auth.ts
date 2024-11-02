@@ -7,7 +7,6 @@ import { useToast } from "./use-toast";
 
 export default function useAuth() {
   const pathname = usePathname();
-
   const { toast } = useToast();
 
   async function login() {
