@@ -1,5 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
 export default function Propos() {
   const categories = [
     {
@@ -110,7 +112,7 @@ export default function Propos() {
                 className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl gap-4 border border-[#ffa23f]"
               >
                 <div>
-                  <img src="/icons/cadeau.png" alt="cadeau" />
+                  <Image src="/icons/cadeau.png" alt="cadeau" />
                 </div>
                 <p className="text-gray-600">
                   Vous avez des proches au Cameroun et souhaitez leur faire
@@ -133,7 +135,7 @@ export default function Propos() {
                 className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl  gap-4 border border-[#ffa23f]"
               >
                 <div>
-                  <img src="/icons/ordre.png" alt="ordre" />
+                  <Image src="/icons/ordre.png" alt="ordre" />
                 </div>
                 <p className="text-gray-600">
                   Avec notre service, vous commandez en toute simplicité depuis
@@ -154,7 +156,7 @@ export default function Propos() {
                 className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl gap-4 border border-[#ffa23f]"
               >
                 <div>
-                  <img src="/icons/bombe-de-table.png" alt="ordre" />
+                  <Image src="/icons/bombe-de-table.png" alt="ordre" />
                 </div>
                 <p className="text-gray-600">
                   Que ce soit pour un anniversaire, une fête ou juste pour faire
@@ -191,7 +193,7 @@ export default function Propos() {
                     marginBottom: "2rem",
                   }}
                 >
-                  <img
+                  <Image
                     src={category.icon}
                     alt={`${category.title} icon`}
                     style={{
