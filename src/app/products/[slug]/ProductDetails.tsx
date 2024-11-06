@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-
 import {
   Dialog,
   DialogContent,
@@ -134,7 +133,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           />
           <div>{/* {JSON.stringify(selectedOptions)} */}</div>
           <div className="space-y-1.5">
-            <Label htmlFor="quantity">Quantité</Label>
+            <Label htmlFor="quantity">Quantité </Label>
             <div className="flex items-center gap-2.5">
               <Input
                 name="quantity"
@@ -147,7 +146,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
               {!!availableQuantity &&
                 (availableQuantityExceeded || availableQuantity < 10) && (
                   <span className="text-destructive">
-                    Seulement
+                    Seulement {""}
                     {availableQuantity} en stock
                   </span>
                 )}

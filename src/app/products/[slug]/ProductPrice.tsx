@@ -17,7 +17,9 @@ export default function ProductPrice({
   const hasDiscoun = priceData.discountedPrice !== priceData.price;
   return (
     <div className="flex items-center gap-2.5 text-xl font-bold">
-      <span className="">{priceData.formatted?.price}</span>
+      <span className={`${hasDiscoun ? "line-through" : ""}`}>
+        {priceData.formatted?.price}
+      </span>
       {hasDiscoun && <span>{priceData.formatted?.discountedPrice}</span>}
       {product.discount && (
         <DiscountBadge data={product.discount}></DiscountBadge>

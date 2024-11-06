@@ -27,7 +27,7 @@ export async function generateMetadata({
   const mainImage = product.media?.mainMedia?.image;
   return {
     title: product.name,
-    description: "get hits product on Flow Shop",
+    description: "obtenir des hits produit sur alibia",
     openGraph: {
       images: mainImage?.url
         ? [
