@@ -1,6 +1,4 @@
 "use client";
-
-import SearchField from "@/components/SearchField";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -101,16 +99,18 @@ export default function MobileMenu({
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-              <a
-                href="#"
-                aria-disabled="true"
-                className="text-gray-400 cursor-not-allowed relative group right-4 z-30"
-              >
-                Nos services
-                <span className="absolute  w-[200px] -top-8 left-1/2 transform -translate-x-1/2 bg-gray-700 text-white text-sm rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Onglet bientôt disponible
-                </span>
-              </a>
+              <li className="relative left-4">
+                <a
+                  href="#"
+                  aria-disabled="true"
+                  className="text-gray-400 cursor-not-allowed relative group right-4 z-30"
+                >
+                  Nos services
+                  <span className="absolute  w-[200px] -top-8 left-1/2 transform -translate-x-1/2 bg-gray-700 text-white text-sm rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Onglet bientôt disponible
+                  </span>
+                </a>
+              </li>
               <li>
                 <Link
                   href="/a-propos"

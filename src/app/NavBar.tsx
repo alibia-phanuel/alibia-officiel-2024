@@ -38,7 +38,7 @@ export default async function NavBar() {
           />
         </Suspense>
         <div className="flex flex-wrap items-center  w-full justify-between relative   logoResponsive">
-          <Link href="/" className="flex items-center gap-4 absolute">
+          <Link href="/" className="flex items-center gap-4 ">
             <Image src={logo} alt="logo" width={150} height={40} />
           </Link>
           <div className="flex justify-center items-center gap-4 absolute left-[27%] responsive">
