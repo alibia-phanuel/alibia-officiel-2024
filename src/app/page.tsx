@@ -44,10 +44,7 @@ export default function Home() {
 }
 async function FeaturedProducts() {
   const wixClient = getWixServerClient();
-  const collections = await getCollectionBySlug(
-    wixClient,
-    "ordinateur-portable-gamer"
-  );
+  const collections = await getCollectionBySlug(wixClient, "home");
 
   if (!collections?._id) {
     return null;
