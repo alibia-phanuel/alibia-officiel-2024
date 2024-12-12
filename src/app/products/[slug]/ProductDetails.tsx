@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ArrowDown, ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import Badge from "@/components/ui/badge";
 import { products } from "@wix/stores";
 import ProductOption from "./ProductOption";
@@ -35,7 +35,6 @@ interface ProductDetailsProps {
 //
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   const [quantity, setQuantity] = useState(1);
-
   const [selectedOptions, setSelectedOptions] = useState<
     Record<string, string>
   >(
@@ -71,7 +70,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
     } else {
       setErrorSate(true); // Indique un succès
       setError("");
-      const domainName = "http:/localhost:3000"; // Remplacez par votre nom de domaine
+      const domainName = "https://www.alibia.tech"; // Remplacez par votre nom de domaine
       const slug = product.slug; // Assurez-vous que `product.slug` est défini pour chaque produit
       const productLink = `${domainName}/products/${slug}`;
       const orderDetails = {

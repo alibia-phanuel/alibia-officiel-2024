@@ -112,7 +112,12 @@ export default function Propos() {
                 className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl gap-4 border border-[#ffa23f]"
               >
                 <div>
-                  <Image src="/icons/cadeau.png" alt="cadeau" />
+                  <Image
+                    width={250}
+                    height={250}
+                    src="/icons/cadeau.png"
+                    alt="cadeau"
+                  />
                 </div>
                 <p className="text-gray-600">
                   Vous avez des proches au Cameroun et souhaitez leur faire
@@ -135,7 +140,12 @@ export default function Propos() {
                 className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl  gap-4 border border-[#ffa23f]"
               >
                 <div>
-                  <Image src="/icons/ordre.png" alt="ordre" />
+                  <Image
+                    width={250}
+                    height={250}
+                    src="/icons/ordre.png"
+                    alt="ordre"
+                  />
                 </div>
                 <p className="text-gray-600">
                   Avec notre service, vous commandez en toute simplicité depuis
@@ -156,7 +166,12 @@ export default function Propos() {
                 className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl gap-4 border border-[#ffa23f]"
               >
                 <div>
-                  <Image src="/icons/bombe-de-table.png" alt="ordre" />
+                  <Image
+                    width={250}
+                    height={250}
+                    src="/icons/bombe-de-table.png"
+                    alt="ordre"
+                  />
                 </div>
                 <p className="text-gray-600">
                   Que ce soit pour un anniversaire, une fête ou juste pour faire
@@ -194,11 +209,11 @@ export default function Propos() {
                   }}
                 >
                   <Image
+                    height={40}
+                    width={40}
                     src={category.icon}
                     alt={`${category.title} icon`}
                     style={{
-                      width: "40px",
-                      height: "40px",
                       marginRight: "10px",
                     }}
                   />

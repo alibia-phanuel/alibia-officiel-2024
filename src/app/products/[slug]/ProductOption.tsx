@@ -1,7 +1,7 @@
 import { Label } from "@/components/ui/label";
 import { checkInStock, cn } from "@/lib/utils";
 import { products } from "@wix/stores";
-import { useState } from "react";
+
 
 interface ProductOptionProps {
   product: products.Product;
