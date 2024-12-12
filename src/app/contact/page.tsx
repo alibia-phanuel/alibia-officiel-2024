@@ -1,20 +1,7 @@
-"use client";
-import { motion } from "framer-motion";
-
 export default function contact() {
   return (
     <main className="mx-auto max-w-7xl space-y-10 px-5 py-10">
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 1 }}
-        transition={{ duration: 0.5 }}
-        variants={{
-          hidden: { opacity: 0, y: 80 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        className="mt-[100px] text-center"
-      >
+      <section className="mt-[100px] text-center">
         <h2 className="text-center font-bold text-orange-400 text-[30px]">
           Contactez-nous
         </h2>
@@ -42,7 +29,7 @@ export default function contact() {
           Nous nous engageons à répondre à vos demandes dans les plus brefs
           délais. Votre satisfaction est notre priorité !
         </p>
-      </motion.section>
+      </section>
     </main>
   );
 }

@@ -1,7 +1,4 @@
-"use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
-
 export default function Propos() {
   const categories = [
     {
@@ -73,17 +70,7 @@ export default function Propos() {
             {" "}
             À propos de nous
           </h2>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 1 }}
-            transition={{ duration: 0.5 }}
-            variants={{
-              hidden: { opacity: 0, y: 80 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="text-center my-10"
-          >
+          <div className="text-center my-10">
             Bienvenue sur{" "}
             <span className="text-orange-400 font-bold mx-2">ALIBIA</span>, qui
             est une start-up dans le digital qui offre des produits et services
@@ -91,7 +78,7 @@ export default function Propos() {
             d`application web et mobile ou aussi des produits informatiques
             comme des ordinateurs, équipements réseau, etc. Notre priorité est
             la satisfaction du client dans tout tous les sens du terme
-          </motion.div>
+          </div>
 
           <div>
             <h1 className="text-center font-bold text-orange-400 text-[30px]">
@@ -100,17 +87,7 @@ export default function Propos() {
             </h1>
 
             <div className="flex gap-4 my-[60px] max-md:flex-wrap">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 1 }}
-                transition={{ duration: 0.5 }}
-                variants={{
-                  hidden: { opacity: 0, y: 80 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl gap-4 border border-[#ffa23f]"
-              >
+              <div className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl gap-4 border border-[#ffa23f]">
                 <div>
                   <Image
                     width={250}
@@ -127,18 +104,8 @@ export default function Propos() {
                   accessoires, objets connectés, et bien plus encore – à des
                   prix abordables.
                 </p>
-              </motion.div>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 1 }}
-                transition={{ duration: 0.7 }}
-                variants={{
-                  hidden: { opacity: 0, y: 80 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl  gap-4 border border-[#ffa23f]"
-              >
+              </div>
+              <div className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl  gap-4 border border-[#ffa23f]">
                 <div>
                   <Image
                     width={250}
@@ -153,18 +120,8 @@ export default function Propos() {
                   chez eux, avec la possibilité de payer à la livraison. C’est
                   pratique, sécurisé et sans souci !
                 </p>
-              </motion.div>
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 1 }}
-                transition={{ duration: 0.9 }}
-                variants={{
-                  hidden: { opacity: 0, y: 80 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl gap-4 border border-[#ffa23f]"
-              >
+              </div>
+              <div className="bg-white flex justify-center items-center p-8 rounded-lg shadow-xl gap-4 border border-[#ffa23f]">
                 <div>
                   <Image
                     width={250}
@@ -180,24 +137,14 @@ export default function Propos() {
                   Faites confiance à notre service et offrez des cadeaux qui
                   feront vraiment plaisir !
                 </p>
-              </motion.div>
+              </div>
             </div>
           </div>
           <div className="">
             <h1 className="py-5 font-bold text-[20px] text-orange-400 ">
               Nous proposons
             </h1>
-            <motion.ul
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 1 }}
-              transition={{ duration: 0.9 }}
-              variants={{
-                hidden: { opacity: 0, y: 80 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              className="list-disc"
-            >
+            <ul className="list-disc">
               {categories.map((category, index) => (
                 <li
                   className="list-disc"
@@ -223,19 +170,9 @@ export default function Propos() {
                   </div>
                 </li>
               ))}
-            </motion.ul>
+            </ul>
           </div>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 1 }}
-            transition={{ duration: 0.5 }}
-            variants={{
-              hidden: { opacity: 0, y: 80 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="text-center my-36"
-          >
+          <div className="text-center my-36">
             Notre mission est simple : offrir à nos clients les dernières
             innovations technologiques à des prix compétitifs, tout en assurant
             une expérience d&lsquo;achat fluide et agréable. Que vous soyez un
@@ -244,7 +181,7 @@ export default function Propos() {
             votre parcours numérique. Merci de faire confiance à
             <span className="text-orange-400 font-bold mx-2">ALIBIA</span>.
             Ensemble, construisons un futur technologique.
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

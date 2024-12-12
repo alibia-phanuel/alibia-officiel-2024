@@ -1,10 +1,7 @@
-"use client";
-import type { Metadata } from "next";
+// import { metadata } from "./metadata";
 import { ThemeProvider } from "next-themes";
-import { useEffect } from "react";
+import usePageView from "../hooks/usePageView"; // Importation du hook personnalisé
 import Script from "next/script";
-import { useRouter } from "next/router";
-import * as gtag from "../lib/gtag";
 import { Lora } from "next/font/google";
 import "./globals.css";
 import NavBar from "./NavBar";
@@ -12,33 +9,19 @@ import Footer from "./Footer";
 import ReactQueryProvider from "./ReactQueryProvider";
 const lora = Lora({ subsets: ["latin"] });
 const GA_TRACKING_ID: string = "G-K3ZHKQSMQK"; // Remplacez par votre ID Google Analytics
-export const metadata: Metadata = {
-  title: {
-    template: "%s | alibia",
-    absolute: "alibia",
-  },
-  description: "la description de votre project web ici",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtag.pageview(url);
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
-
+  usePageView(); // Utilisation du hook pour suivre les pages vues
   return (
     <html lang="en">
+      <head>
+        {/* Ici, vous pouvez utiliser metadata comme vous en avez besoin */}
+        <meta name="description" content="Site de commerce en ligne Alibia" />
+        <title>alibia</title>
+      </head>
       <body className={lora.className}>
         <ThemeProvider
           attribute="class"
