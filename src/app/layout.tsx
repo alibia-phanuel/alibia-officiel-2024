@@ -1,3 +1,4 @@
+"use client";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { useEffect } from "react";
