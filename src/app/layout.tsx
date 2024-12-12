@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-
+import { useEffect } from "react";
+import Script from "next/script";
+import { useRouter } from "next/router";
+import * as gtag from "../lib/gtag";
 import { Lora } from "next/font/google";
 import "./globals.css";
 import NavBar from "./NavBar";
@@ -23,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={lora.className} >
+      <body className={lora.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

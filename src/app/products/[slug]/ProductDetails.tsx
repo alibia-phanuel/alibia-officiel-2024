@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import * as gtag from "@/lib/gtag";
 import {
   Dialog,
   DialogContent,
@@ -201,6 +202,12 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                       if (errorState === true) {
                         window.open(orderLink, "_blank"); // Redirige uniquement en cas de succès
                       }
+                      gtag.event({
+                        action: "achat",
+                        category: "ecommerce",
+                        label: "bouton_commander",
+                        value: 100, // Par exemple, le montant de l'achat
+                      });
                     }}
                     variant="secondary"
                     className="flex gap-3"
