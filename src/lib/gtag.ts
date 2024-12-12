@@ -1,6 +1,6 @@
 export const GA_TRACKING_ID: string = "G-K3ZHKQSMQK"; // Remplacez par votre ID Google Analytics
 
-// Déclare l'objet `gtag` pour éviter les erreurs TypeScript
+// Déclare l'objet `gtag` pour éviter les erreurs Ts
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;
