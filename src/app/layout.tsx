@@ -14,7 +14,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  usePageView(); // Utilisation du hook pour suivre les pages vues
   return (
     <html lang="en">
       <head>
