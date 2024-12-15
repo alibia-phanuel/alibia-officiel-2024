@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ReactPlayer from "react-player/lazy";
 
 export default function page() {
   return (
@@ -15,10 +14,26 @@ export default function page() {
           </div>
         </div>
         <div className="flex flex-col gap-8 justify-center items-center w-full p-8 ">
-          <div className="shadow-lg border border-orange-500 rounded-lg flex flex-col justify-center max-md:w-full  items-center w-[800px] h-[700px]">
-            <ReactPlayer url="https://www.youtube.com/watch?v=cxp3c52MZ7U&t=9s" />
-            <div className="p-4 font-semibold text-lg">
-              Comment passer une commande ?
+          <div className="flex flex-col items-center justify-center py-10 px-4 bg-gray-100 rounded-lg">
+            <h1 className="text-2xl font-bold text-gray-800 mb-6">
+              Comment passer une commande
+            </h1>
+            <div className="w-full max-w-2xl">
+              <video
+                className="w-full h-auto rounded-lg shadow-lg"
+                poster="../assets/order.jpg" // Remplacez par le chemin de l'image miniature de la vidéo
+                controls
+                preload="none"
+              >
+                <source src="/passOrders.mp4" type="video/mp4" />
+                <track
+                  src="../assets/order.jpg"
+                  kind="subtitles"
+                  srcLang="fr"
+                  label="Francais"
+                />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>

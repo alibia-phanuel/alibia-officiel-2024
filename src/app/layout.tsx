@@ -1,6 +1,6 @@
 // import { metadata } from "./metadata";
 import { ThemeProvider } from "next-themes";
-import usePageView from "../hooks/usePageView"; // Importation du hook personnalisé
+import { usePageView } from "@/hooks/usePageView";
 import Script from "next/script";
 import { Lora } from "next/font/google";
 import "./globals.css";
